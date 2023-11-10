@@ -11,6 +11,7 @@
     {% else %}
     <h1>Login</h1>
     </br>
+    
     <form method="POST" action={% url 'home' %}>
         {% csrf_token %}
         <div class="mb-3">
