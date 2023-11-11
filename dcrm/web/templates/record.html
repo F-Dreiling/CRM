@@ -2,57 +2,57 @@
 
 {% block content %}
 
-    <div class="col-md-6 offset-md-3">
+<div class="col-md-6 offset-md-3">
 
-      <h1>Customer Record</h1>
-      </br>
+    <h1>Customer Record</h1>
+    </br>
 
-      <table class="table table-striped table-hover">
-        <thead class="table-dark">
-          <tr>
-            <th scope="col"></th>
-            <th scope="col">Value</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th>ID</th>
-            <td>{{ customer_record.id }}</td>
-          </tr>
-          <tr>
-            <th>Name</th>
-            <td>{{ customer_record }}</td>
-          </tr>
-          <tr>
-            <th>Email</th>
-            <td>{{ customer_record.email }}</td>
-          </tr>
-          <tr>
-            <th>Phone</th>
-            <td>{{ customer_record.phone }}</td>
-          </tr>
-          <tr>
-            <th>Address</th>
-            <td>{{ customer_record.address }}</td>
-          </tr>
-          <tr>
-            <th>City</th>
-            <td>{{ customer_record.city }}</td>
-          </tr>
-          <tr>
-            <th>State</th>
-            <td>{{ customer_record.state }}</td>
-          </tr>
-          <tr>
-            <th>Zipcode</th>
-            <td>{{ customer_record.zipcode }}</td>
-          </tr>
-          <tr>
-            <th>Created</th>
-            <td>{{ customer_record.created_at }}</td>
-          </tr>
-        </tbody>
-
+    <div class="card">
+      <div class="card-header">
+        <h5>{{ customer_record.id }}: <strong>{{ customer_record }}</strong></h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text">
+        <table class="table table-striped table-hover">
+          <tbody>
+            <tr>
+                <th>Email</th>
+                <td>{{ customer_record.email }}</td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td>{{ customer_record.phone }}</td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td>{{ customer_record.address }}</td>
+            </tr>
+            <tr>
+                <th>City</th>
+                <td>{{ customer_record.city }}</td>
+            </tr>
+            <tr>
+                <th>State</th>
+                <td>{{ customer_record.state }}</td>
+            </tr>
+            <tr>
+                <th>Zipcode</th>
+                <td>{{ customer_record.zipcode }}</td>
+            </tr>
+            <tr>
+                <th>Created</th>
+                <td>{{ customer_record.created_at }}</td>
+            </tr>
+          </tbody>
+        </table>
+        </p>
+      </div>
     </div>
+
+    </br>
+    <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
+    <a href="{% url 'home' %}" class="btn btn-danger">Delete</a>
+
+</div>
 
 {% endblock %}
