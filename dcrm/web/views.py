@@ -70,7 +70,7 @@ def delete_record(request, pk):
         # Look up record to delete
         delete_record = Record.objects.get(id=pk)
         delete_record.delete()
-        messages.success(request, "Record has been deleted successfully")
+        messages.success(request, "Record has been deleted")
         return redirect('home')
     
     else:
@@ -97,3 +97,20 @@ def add_record(request):
         messages.success(request, "You must be logged in to do that")
         return redirect('home')
         
+def edit_record(request, pk):
+    # Check if logged in
+    if request.user.is_authenticated:
+        # Look up record to update
+        current_record = Record.objects.get(id=pk)
+        form = AddRecordForm(request.POST or None, instance=current_record)
+        
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Record has been updated")
+            return redirect('home')
+        
+        return render(request, 'edit_record.html', {'form':form})
+    
+    else:
+        messages.success(request, "You must be logged in to do that")
+        return redirect('home')
