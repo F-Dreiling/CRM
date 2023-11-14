@@ -109,7 +109,7 @@ def edit_record(request, pk):
             messages.success(request, "Record has been updated")
             return redirect('home')
         
-        return render(request, 'edit_record.html', {'form':form})
+        return render(request, 'edit_record.html', {'form':form, 'current_record':current_record})
     
     else:
         messages.success(request, "You must be logged in to do that")
