@@ -12,19 +12,22 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 import os
 from pathlib import Path
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+load_dotenv()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-x5@@_um(14zc83q3!czqvenuo6v6u8ou(oxwu__xmgol5&f@6q'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG = os.getenv('DEBUG', '0').lower() in ['true', 't', '1']
 
 ALLOWED_HOSTS = ['localhost', 'dreiling.dev', 'www.dreiling.dev', 'dr-demo-crm.azurewebsites.net']
 
@@ -78,10 +81,10 @@ WSGI_APPLICATION = 'crm.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'dcrm-db',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': 'localhost',
+        'NAME': os.environ.get('AZURE_MYSQL_NAME', 'dcrm-db'),
+        'USER': os.environ.get('AZURE_MYSQL_USER', 'root'),
+        'PASSWORD': os.environ.get('AZURE_MYSQL_PASSWORD', ''),
+        'HOST': os.environ.get('AZURE_MYSQL_HOST', 'localhost'),
         'PORT': '3306',
     }
 }
