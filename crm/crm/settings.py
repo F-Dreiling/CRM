@@ -81,10 +81,10 @@ WSGI_APPLICATION = 'crm.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.environ.get('AZURE_MYSQL_NAME', 'dcrm-db'),
-        'USER': os.environ.get('AZURE_MYSQL_USER', 'root'),
-        'PASSWORD': os.environ.get('AZURE_MYSQL_PASSWORD', ''),
-        'HOST': os.environ.get('AZURE_MYSQL_HOST', 'localhost'),
+        'NAME': os.environ.get('AZURE_MYSQL_NAME'),
+        'USER': os.environ.get('AZURE_MYSQL_USER'),
+        'PASSWORD': os.environ.get('AZURE_MYSQL_PASSWORD'),
+        'HOST': os.environ.get('AZURE_MYSQL_HOST'),
         'PORT': '3306',
     }
 }
