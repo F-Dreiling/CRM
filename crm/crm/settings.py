@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -25,7 +26,7 @@ SECRET_KEY = 'django-insecure-x5@@_um(14zc83q3!czqvenuo6v6u8ou(oxwu__xmgol5&f@6q
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 'dreiling.dev', 'www.dreiling.dev']
+ALLOWED_HOSTS = ['localhost', 'dreiling.dev', 'www.dreiling.dev', 'dr-demo-crm.azurewebsites.net']
 
 
 # Application definition

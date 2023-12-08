@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=C:\Users\drf38\OneDrive\Code\Python\DCRM\vir
+set VIRTUAL_ENV=C:\Users\drf38\OneDrive\Code\Python\CRM\vir
 
 if not defined PROMPT set PROMPT=$P$G
 
