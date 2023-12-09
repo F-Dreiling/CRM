@@ -19,6 +19,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 load_dotenv()
 
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
@@ -29,7 +30,8 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # DEBUG = True
 DEBUG = os.getenv('DEBUG', '0').lower() in ['true', 't', '1']
 
-ALLOWED_HOSTS = ['localhost', 'dreiling.dev', 'www.dreiling.dev', 'dr-demo-crm.azurewebsites.net']
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(' ')
+CSRF_TRUSTED_ORIGINS = os.getenv('CSRF_TRUSTED_ORIGINS').split(' ')
 
 
 # Application definition
@@ -86,6 +88,7 @@ DATABASES = {
         'PASSWORD': os.environ.get('AZURE_MYSQL_PASSWORD'),
         'HOST': os.environ.get('AZURE_MYSQL_HOST'),
         'PORT': '3306',
+        'OPTIONS': {'sslmode': 'require'},
     }
 }
 

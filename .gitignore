@@ -1,2 +1,6 @@
-## 
+# Virtual Environment
 /vir/
+
+# .env
+.env
+/crm/.env
