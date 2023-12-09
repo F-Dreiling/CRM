@@ -1,6 +1,7 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from django.http import HttpResponse
 from .forms import SignUpForm, AddRecordForm
 from .models import Record
 
@@ -23,7 +24,11 @@ def home(request):
             messages.success(request, "There was an error logging in")
             return redirect('home')
     else:
-        return render(request, 'home.html', {'records':records})
+        data = render(request, 'home.html', {'records':records})
+        response = HttpResponse(data)
+        response['X-Frame-Options'] = "ALLOWALL"
+        return response
+        # return render(request, 'home.html', {'records':records})
 
 def logout_user(request):
     logout(request)
