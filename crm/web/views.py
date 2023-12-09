@@ -24,11 +24,11 @@ def home(request):
             messages.success(request, "There was an error logging in")
             return redirect('home')
     else:
-        data = render(request, 'home.html', {'records':records})
-        response = HttpResponse(data)
-        response['X-Frame-Options'] = "allow-from https://google.com/"
-        return response
-        # return render(request, 'home.html', {'records':records})
+        #data = render(request, 'home.html', {'records':records})
+        #response = HttpResponse(data)
+        #response['X-Frame-Options'] = "allow-from https://dreiling.x10.mx/"
+        #return response
+        return render(request, 'home.html', {'records':records})
 
 def logout_user(request):
     logout(request)
@@ -52,19 +52,19 @@ def register_user(request):
             messages.success(request, "You have successfully created an account")
             return redirect('home')
         else:
-            data = render(request, 'register.html', {'form':form})
-            response = HttpResponse(data)
-            response['X-Frame-Options'] = "allow-from https://dreiling.dev/"
-            return response
-            # return render(request, 'register.html', {'form':form})
+            #data = render(request, 'register.html', {'form':form})
+            #response = HttpResponse(data)
+            #response['X-Frame-Options'] = "allow-from https://dreiling.x10.mx/"
+            #return response
+            return render(request, 'register.html', {'form':form})
         
     else:
         form = SignUpForm()
-        data = render(request, 'register.html', {'form':form})
-        response = HttpResponse(data)
-        response['X-Frame-Options'] = "allow-from https://dreiling.dev/"
-        return response
-        # return render(request, 'register.html', {'form':form})
+        #data = render(request, 'register.html', {'form':form})
+        #response = HttpResponse(data)
+        #response['X-Frame-Options'] = "allow-from https://dreiling.x10.mx/"
+        #return response
+        return render(request, 'register.html', {'form':form})
     
 def customer_record(request, pk):
     # Check if logged in
