@@ -30,10 +30,9 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # DEBUG = True
 DEBUG = os.getenv('DEBUG', '0').lower() in ['true', 't', '1']
 
-# ALLOWED_HOSTS = ['localhost', 'dreiling.dev', 'www.dreiling.dev', 'dr-demo-crm.azurewebsites.net']
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(' ')
-CSRF_TRUSTED_ORIGINS = os.getenv('CSRF_TRUSTED_ORIGINS').split(' ')
-
+ALLOWED_HOSTS = ['localhost', 'dreiling.dev', 'www.dreiling.dev', 'dreiling.x10.mx', 'www.dreiling.x10.mx', 'dr-demo-crm.azurewebsites.net']
+# ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(' ')
+# CSRF_TRUSTED_ORIGINS = os.getenv('CSRF_TRUSTED_ORIGINS').split(' ')
 
 
 # Application definition
