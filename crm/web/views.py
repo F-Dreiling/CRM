@@ -52,7 +52,11 @@ def register_user(request):
             messages.success(request, "You have successfully created an account")
             return redirect('home')
         else:
-            return render(request, 'register.html', {'form':form})
+            data = render(request, 'register.html', {'form':form})
+            response = HttpResponse(data)
+            response['X-Frame-Options'] = "allow-from https://dreiling.x10.mx/"
+            return response
+            # return render(request, 'register.html', {'form':form})
         
     else:
         form = SignUpForm()
