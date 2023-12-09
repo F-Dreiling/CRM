@@ -26,7 +26,7 @@ def home(request):
     else:
         data = render(request, 'home.html', {'records':records})
         response = HttpResponse(data)
-        response['X-Frame-Options'] = "allow-from https://dreiling.x10.mx/"
+        response['X-Frame-Options'] = "allow-from https://dreiling.dev/"
         return response
         # return render(request, 'home.html', {'records':records})
 
@@ -54,7 +54,7 @@ def register_user(request):
         else:
             data = render(request, 'register.html', {'form':form})
             response = HttpResponse(data)
-            response['X-Frame-Options'] = "allow-from https://dreiling.x10.mx/"
+            response['X-Frame-Options'] = "allow-from https://dreiling.dev/"
             return response
             # return render(request, 'register.html', {'form':form})
         
@@ -62,7 +62,7 @@ def register_user(request):
         form = SignUpForm()
         data = render(request, 'register.html', {'form':form})
         response = HttpResponse(data)
-        response['X-Frame-Options'] = "allow-from https://dreiling.x10.mx/"
+        response['X-Frame-Options'] = "allow-from https://dreiling.dev/"
         return response
         # return render(request, 'register.html', {'form':form})
     
