@@ -26,7 +26,7 @@ def home(request):
     else:
         data = render(request, 'home.html', {'records':records})
         response = HttpResponse(data)
-        response['X-Frame-Options'] = "ALLOWALL"
+        response['X-Frame-Options'] = "allow-from https://dreiling.x10.mx/"
         return response
         # return render(request, 'home.html', {'records':records})
 
