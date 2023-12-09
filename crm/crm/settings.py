@@ -30,9 +30,14 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # DEBUG = True
 DEBUG = os.getenv('DEBUG', '0').lower() in ['true', 't', '1']
 
-ALLOWED_HOSTS = ['localhost', 'dreiling.dev', 'www.dreiling.dev', 'dreiling.x10.mx', 'www.dreiling.x10.mx', 'dr-demo-crm.azurewebsites.net']
-# ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(' ')
-# CSRF_TRUSTED_ORIGINS = os.getenv('CSRF_TRUSTED_ORIGINS').split(' ')
+# ALLOWED_HOSTS = ['localhost', 'dreiling.dev', 'www.dreiling.dev', 'dreiling.x10.mx', 'www.dreiling.x10.mx', 'dr-demo-crm.azurewebsites.net']
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(' ')
+CSRF_TRUSTED_ORIGINS = os.getenv('CSRF_TRUSTED_ORIGINS').split(' ')
+
+SECURE_SSL_REDIRECT = \
+    os.getenv('SECURE_SSL_REDIRECT', '0').lower() in ['true', 't', '1']
+if SECURE_SSL_REDIRECT:
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 
 # Application definition
@@ -89,6 +94,7 @@ DATABASES = {
         'PASSWORD': os.environ.get('AZURE_MYSQL_PASSWORD'),
         'HOST': os.environ.get('AZURE_MYSQL_HOST'),
         'PORT': '3306',
+        'OPTIONS': {'sslmode': 'require'},
     }
 }
 
