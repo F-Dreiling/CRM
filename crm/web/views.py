@@ -60,7 +60,11 @@ def register_user(request):
         
     else:
         form = SignUpForm()
-        return render(request, 'register.html', {'form':form})
+        data = render(request, 'register.html', {'form':form})
+        response = HttpResponse(data)
+        response['X-Frame-Options'] = "allow-from https://dreiling.x10.mx/"
+        return response
+        # return render(request, 'register.html', {'form':form})
     
 def customer_record(request, pk):
     # Check if logged in
