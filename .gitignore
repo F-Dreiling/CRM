@@ -4,3 +4,4 @@
 # .env
 .env
 /crm/.env
+aiven-ca.pem
